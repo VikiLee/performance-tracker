@@ -1,5 +1,5 @@
 ## 功能
-用于采集性能指标数据，需要配合[webpack-plugin-performance-tracker](https://github.com/VikiLee/performance-tracker)使用
+用于采集性能指标数据，需要配合[webpack-plugin-performance-tracker](https://github.com/VikiLee/webpack-plugin-performance-tracker)使用
 
 ### usage
 在入口文件处：
