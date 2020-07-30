@@ -1,0 +1,18 @@
+{
+  "name": "performance-tracker",
+  "version": "1.0.5-beta",
+  "description": "track performance metrics with webpack-plugin-performance-tracker",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "build:types": "tsc --emitDeclarationOnly"
+  },
+  "keywords": [
+    "performance",
+    "metrics"
+  ],
+  "author": "weiji.li",
+  "license": "ISC"
+}
