@@ -8,7 +8,7 @@ export interface Performance {
     id: string;
     fp: number;
     fcp: number;
-    fapi: number | null;
+    fapi: number;
     fjs: number;
     fcss: number;
     fimg: number;

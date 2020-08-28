@@ -78,7 +78,9 @@ function default_1(options) {
                         switch (entry.initiatorType) {
                             case 'xmlhttprequest':
                                 if (includeApi(options.firstApi || [], entry.name)) {
-                                    __performance.fapi = time;
+                                    if (__performance.fapi < time) {
+                                        __performance.fapi = time;
+                                    }
                                 }
                                 break;
                             case 'img':
@@ -87,17 +89,23 @@ function default_1(options) {
                                 for (var j = 0; j < imgLen; j++) {
                                     var $mainImg = $mainImgs[j];
                                     if (entry.name === getImgSrc($mainImg)) {
-                                        __performance.fimg = time;
+                                        if (__performance.fimg < time) {
+                                            __performance.fimg = time;
+                                        }
                                     }
                                 }
                                 break;
                             case 'link':
                             case 'script':
                                 if (includeSource(options.firstJs || [], entry.name)) {
-                                    __performance.fjs = time;
+                                    if (__performance.fjs < time) {
+                                        __performance.fjs = time;
+                                    }
                                 }
                                 else if (includeSource(options.firstCss || [], entry.name)) {
-                                    __performance.fcss = time;
+                                    if (__performance.fcss < time) {
+                                        __performance.fcss = time;
+                                    }
                                 }
                                 break;
                         }

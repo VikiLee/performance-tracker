@@ -82,7 +82,7 @@ export default function(options: Options) {
             switch (entry.initiatorType) {
               case 'xmlhttprequest':
                 if (includeApi(options.firstApi || [], entry.name)) {
-                  if (__performance.fapi && __performance.fapi < time) {
+                  if (__performance.fapi < time) {
                     __performance.fapi = time;
                   }
                 }
@@ -93,7 +93,7 @@ export default function(options: Options) {
                 for (let j = 0; j < imgLen; j++) {
                   var $mainImg = $mainImgs[j];
                   if (entry.name === getImgSrc($mainImg)) {
-                    if (__performance.fimg && __performance.fimg < time) {
+                    if (__performance.fimg < time) {
                       __performance.fimg = time;
                     }
                   }
@@ -102,11 +102,11 @@ export default function(options: Options) {
               case 'link':
               case 'script':
                 if (includeSource(options.firstJs || [], entry.name)) {
-                  if (__performance.fjs && __performance.fjs < time) {
+                  if (__performance.fjs < time) {
                     __performance.fjs = time;
                   }
                 } else if (includeSource(options.firstCss || [], entry.name)) {
-                  if (__performance.fcss && __performance.fcss < time) {
+                  if (__performance.fcss < time) {
                     __performance.fcss = time;
                   }
                 }
@@ -171,7 +171,7 @@ export interface Performance {
   id: string;
   fp: number; // first paint
   fcp: number; // first contentful paint
-  fapi: number | null; // first api
+  fapi: number; // first api
   fjs: number; // first js
   fcss: number; // first css
   fimg: number; // first image
